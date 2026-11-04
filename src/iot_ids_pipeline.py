@@ -7,7 +7,7 @@ Secondary datasets (--profile legacy): CICIoT2023, Edge-IIoTset, ToN_IoT (networ
 v8 additions (NF profile)
   * budget_tuned: stronger target-only baselines on the SAME label draws as budget_core: imbalance-aware RF
     (balanced_subsample, depth 6 or 12), shallow XGB, and RF/XGB/DT tuned by 3-fold CV on the labelled flows;
-    paired Wilcoxon vs DT_d4, DT_d6 and default RF (wilcoxon_budget_tuned.csv).
+    paired Wilcoxon vs DT_d4, DT_d6 and default RF / XGB (wilcoxon_budget_tuned.csv).
 
 v7 additions (NF profile)
   * budget_core: 50-1000 labelled target flows drawn at the target's REAL attack share; target-only vs pooled source
@@ -1517,8 +1517,8 @@ def run_budget_tuned_seed(views, seed, shares, models=None):
     return df
 
 
-def budget_tuned_tests(bt, bd, out, refs=("DT_d4", "DT_d6", "RF"), metric="mcc"):
-    """Each stronger baseline vs the fixed small trees (and default RF), target-only, paired by seed
+def budget_tuned_tests(bt, bd, out, refs=("DT_d4", "DT_d6", "RF", "XGB"), metric="mcc"):
+    """Each stronger baseline vs the fixed small trees and default RF / XGB, target-only, paired by seed
     (metric averaged over the 4 target networks); Holm within each budget and reference model."""
     base = bd[bd.setting == "targetonly"]
     allm = pd.concat([base, bt], ignore_index=True)

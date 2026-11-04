@@ -126,18 +126,20 @@ f.subplots_adjust(bottom=.2, wspace=.08, hspace=.35); save(f, "fig8_budget")
 
 # Fig 9: compact vs full: size vs MCC
 cv = pd.read_csv(f"{R}/compact_vs_full.csv")
+ec = pd.read_csv(f"{R}/eval_compact.csv")   # true LODO MCC (compact_vs_full's mcc_cross_lodo pools cross and LODO)
+cv["mcc_lodo"] = cv.model.map(ec[ec.setting == "lodo"].groupby("model").mcc.mean())
 f, a = plt.subplots(figsize=(W1, 2.2))
 for _, row in cv.iterrows():
     a.scatter(row.data_bytes, row.mcc_within, s=14, color="#1f4e79", zorder=3)
-    a.scatter(row.data_bytes, row.mcc_cross_lodo, s=14, color="#c0392b", marker="s", zorder=3)
+    a.scatter(row.data_bytes, row.mcc_lodo, s=14, color="#c0392b", marker="s", zorder=3)
     OFF = {"LR": ((4, -9), "LR"), "DT_d4": ((-8, -11), "DT d4"), "DT_d6": ((-4, -11), "DT d6"), "MLP_8": ((-22, -11), "MLP 8"),
            "RF_t20_d6": ((-26, -11), "RF 20 trees")}
     if row.model in OFF:
         a.annotate(OFF[row.model][1], (row.data_bytes, row.mcc_within), fontsize=5.5, xytext=OFF[row.model][0], textcoords="offset points")
-fr = cv.full_RF_mcc_within.iloc[0]; fl = cv.full_RF_mcc_cross_lodo.iloc[0]
+fr = cv.full_RF_mcc_within.iloc[0]; fl = r[(r.featset == "core") & (r.setting == "lodo") & (r.model == "RF")].mcc.mean()
 a.axhline(fr, color="#1f4e79", ls=":", lw=.8); a.axhline(fl, color="#c0392b", ls=":", lw=.8)
 a.text(130, fr + .03, "full RF (2.8 MB), within", fontsize=6, color="#1f4e79"); a.text(130, fl + .03, "full RF, LODO", fontsize=6, color="#c0392b")
 a.scatter([], [], s=14, color="#1f4e79", label="Within-dataset"); a.scatter([], [], s=14, color="#c0392b", marker="s", label="LODO")
-a.set_xscale("log"); a.set_xlabel("Model data size as C arrays (bytes)"); a.set_ylabel("MCC"); a.set_ylim(-.3, 1.1)
+a.set_xscale("log"); a.set_xlabel("Model data size as C arrays (bytes)"); a.set_ylabel("MCC"); a.set_ylim(-.45, 1.1)
 a.legend(frameon=False, loc="center right"); save(f, "fig9_compact")
 print("ok")
