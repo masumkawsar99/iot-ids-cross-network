@@ -1,0 +1,7 @@
+,n_attack_labels,n_attack_labels,n_attack_labels,n_attack_labels,n_attack_labels,single_class,single_class,single_class,single_class,single_class
+budget,50,100,200,500,1000,50,100,200,500,1000
+test,,,,,,,,,,
+NF-BoT-IoT-v2,49.9,99.7,199.0,497.8,995.6,0.9,0.7,0.5,0.1,0.0
+NF-CSE-CIC-IDS2018-v2,6.5,13.9,22.1,60.3,118.2,0.0,0.0,0.0,0.0,0.0
+NF-ToN-IoT-v2,32.5,67.3,130.6,321.1,647.9,0.0,0.0,0.0,0.0,0.0
+NF-UNSW-NB15-v2,2.0,3.9,6.3,18.9,36.8,0.0,0.0,0.0,0.0,0.0

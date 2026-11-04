@@ -1,0 +1,13 @@
+featset,dataset,rows_before,rows_after,dedup
+core,NF-BoT-IoT-v2,49997,10322,True
+core,NF-CSE-CIC-IDS2018-v2,49993,21817,True
+core,NF-ToN-IoT-v2,49995,12020,True
+core,NF-UNSW-NB15-v2,49995,14829,True
+core_dn,NF-BoT-IoT-v2,49997,10322,True
+core_dn,NF-CSE-CIC-IDS2018-v2,49993,21817,True
+core_dn,NF-ToN-IoT-v2,49995,12020,True
+core_dn,NF-UNSW-NB15-v2,49995,14829,True
+core_noart,NF-BoT-IoT-v2,49997,10268,True
+core_noart,NF-CSE-CIC-IDS2018-v2,49993,19651,True
+core_noart,NF-ToN-IoT-v2,49995,11857,True
+core_noart,NF-UNSW-NB15-v2,49995,14707,True

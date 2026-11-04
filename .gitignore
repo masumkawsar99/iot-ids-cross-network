@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+nf_raw/
+nf_samples/
+results_nf/
+checkpoints/
+*.csv.gz
+*.zip
+paper_figs/

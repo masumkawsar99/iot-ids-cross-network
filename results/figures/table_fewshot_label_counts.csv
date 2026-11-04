@@ -1,0 +1,7 @@
+featset,frac,mean_labelled_target_flows
+core,0.005,73.75
+core,0.01,147.25
+core,0.05,737.25
+core_noart,0.005,70.5
+core_noart,0.01,141.5
+core_noart,0.05,706.0
