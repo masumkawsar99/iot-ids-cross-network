@@ -1,6 +1,6 @@
-# Local Labels Beat Public Data: Cross-Network Evaluation of Lightweight IoT Intrusion Detectors
+# Local Labels Beat Public Data: Cross-Network Evaluation of Lightweight and Explainable IoT Intrusion Detectors
 
-Code, notebook, result files and ESP32 benchmark for the paper by **MD Masum Kawsar**
+Code, notebook, result files and ESP32 benchmark for the paper by **Md Masum Kawsar** and **Mayishat Altab Mridu** (Department of Computer Science and Engineering, Daffodil International University, Dhaka, Bangladesh)
 
 > **Local Labels Beat Public Data: Cross-Network Evaluation of Lightweight and Explainable IoT Intrusion Detectors**
 > (submitted to *SN Computer Science*)
@@ -13,6 +13,7 @@ The study trains five model families and nine microcontroller-sized models on fo
 |---|---|
 | Within-dataset MCC (RF, XGBoost) | 0.94 |
 | Cross-dataset / leave-one-dataset-out MCC (all models) | about 0 (−0.35 to −0.01) |
+| Testbed features (TTL, TCP window) in SHAP importance | 14–40% |
 | Cross-dataset pairs with ROC-AUC below 0.5 (inverted) | 62% |
 | Depth-4 tree, 1000 local labels at the real attack share | MCC 0.79 (best tuned ensemble 0.76) |
 | Depth-4 tree on ESP32 | 405 bytes, 2.4 µs per flow, predictions identical to scikit-learn |
@@ -23,7 +24,7 @@ The study trains five model families and nine microcontroller-sized models on fo
 notebooks/IoT_IDS_NetFlow_Colab.ipynb   Google Colab notebook that runs everything (Steps 1-8)
 src/iot_ids_pipeline.py                 Full experiment pipeline (resumable, checkpointed per seed)
 src/prepare_nf_samples.py               Stratified sampling of the full NetFlow-v2 files
-paper/make_figs.py                      Draws the paper's figures from the result CSVs
+paper/make_figs.py                      Draws the paper's figures (Figs. 2–9) from the result CSVs
 esp32/esp32_benchmark/                  Arduino sketch: 9 compact models exported to C + 500 test flows
 esp32/esp32_results.csv                 Raw ESP32 measurements used in the paper (Table 8)
 results/                                All result CSVs of the final run (10 seeds) + run_config.json

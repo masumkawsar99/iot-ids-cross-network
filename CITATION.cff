@@ -4,11 +4,17 @@ title: "Local Labels Beat Public Data: Cross-Network Evaluation of Lightweight a
 type: software
 authors:
   - family-names: "Kawsar"
-    given-names: "MD Masum"
+    given-names: "Md Masum"
+    orcid: "https://orcid.org/0009-0005-3020-6274"
+    affiliation: "Department of Computer Science and Engineering, Daffodil International University, Dhaka, Bangladesh"
+  - family-names: "Mridu"
+    given-names: "Mayishat Altab"
+    orcid: "https://orcid.org/0009-0006-5069-3097"
+    affiliation: "Department of Computer Science and Engineering, Daffodil International University, Dhaka, Bangladesh"
 license: MIT
 repository-code: "https://github.com/masumkawsar99/iot-ids-cross-network"
 version: "1.0.0"
-date-released: "2026-11-04"
+date-released: "2026-11-05"
 keywords:
   - intrusion detection
   - Internet of Things
